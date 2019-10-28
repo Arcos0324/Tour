@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, SytleSheet}from 'react-vr';
+import { View, Text, StyleSheet, AsyncStorage }from 'react-vr';
 
-import Shape, {shapes} from './Shapes'
+import Shape, {shapes} from './Shape'
 export default class Game extends React.Component{
     constructor(){
         super();
@@ -14,7 +14,7 @@ export default class Game extends React.Component{
     }
     
     
-    componentDidMount(){
+    /*componentDidMount(){
     //Guardar el record
         AsyncStorage.getItem('score')
         .then(value=> { 
@@ -22,7 +22,7 @@ export default class Game extends React.Component{
           this.setState({score: value});
         })
         this.newGameSet();
-    }
+    }*/
     
     newGameSet(){
         console.log("New game set!");
@@ -56,13 +56,13 @@ export default class Game extends React.Component{
         this.setState({score});
     
         //Pone el record
-        AsyncStorage.setItem('score', score);
+        //AsyncStorage.setItem('score', score);
     
         this.newGameSet();
     }
     render() {
         return (
-          <View>
+          <View style={styles.Game}>
             <Text style={styles.text}>
               Juego (Prueba1)
             </Text>
@@ -74,7 +74,7 @@ export default class Game extends React.Component{
                 return (
                   <View key={index}
                   onEnter={()=>this.pickShape(index)}>
-                    <Shape shapeNum={shape} colorNum={index} transform={[{translate: [(index-1.5)*1.5, 0, -5]}]}/>
+                    <Shape shapeNum={shape} colorNum={index} transform={[{translate: [(index-1.5)*1.5, 0, 2]}]}/>
                   </View>
                 )
               })
@@ -83,10 +83,19 @@ export default class Game extends React.Component{
         );
     }
 };
-const styles= StyleSheet.create({  
+const styles= StyleSheet.create({ 
+    Game:{
+        transform:[
+            {translate: [ 9, 15, 4]},
+            {rotateY:-105}
+        ]
+    },
     text:{
         textAlign: 'center',
+        opacity: 0.5,
         fontSize: 0.5,
+        color: '#fff',
+        backgroundColor: '#000',
         transform: [
             {translate: [0, 2, -5]}
         ]

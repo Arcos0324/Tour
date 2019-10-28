@@ -6,12 +6,12 @@ export {shapes};
 export default class Shape extends React.Component {
     render(){
         let Component=shapes[this.props.shapeNum];
-        let texture=[];
+        let colors = ['#C33000', '#1FA001', '#214EB4', '#D3B010'];
         return(
             <Component style={{
-                texture: texture[this.props.textureNum],
+                colors: texture[this.props.colorNum],
                 transform: this.props.transform,
-            }}
+            }}/>
         )
     }
 }

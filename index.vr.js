@@ -10,6 +10,7 @@ import {
 
 import WeatherCard from './vr/components/weatherCard';
 import Clouds from './vr/components/clouds';
+import Game from './vr/components/Game';
 
 //const apiKey = 'ad106cf450bcce17f5a1858b6eef11b1';
 const places=[
@@ -169,6 +170,7 @@ export default class PPrincipal extends React.Component {
         <WeatherCard weatherObject={this.state.weatherObject}/>
         <Clouds wind={this.state.weatherObject.results[0].windspeedkm}/>
         <Pano source={asset(this.state.place)}/>
+        <Game/>
       </View>
     );
   }
@@ -182,8 +184,8 @@ const styles= StyleSheet.create({
     height: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    opacity:0.7,
+    backgroundColor: "#000",
+    opacity: 0.8,
     transform:[
       {translate: [-2,0.45,-3]}
     ]
@@ -191,7 +193,7 @@ const styles= StyleSheet.create({
   BienvenidaT:{
     textAlign: 'center',
     fontSize: 0.3,
-    color: '#000'
+    color: '#fff'
   },
   Menu:{
     width: 2,
@@ -208,7 +210,7 @@ const styles= StyleSheet.create({
 
   info:{
     backgroundColor: '#7F8C8D',
-    opacity: 0.5,
+    opacity: 0.8,
     width: 8.5,
     height: 6.5,
     alignItems: 'center',
@@ -228,7 +230,7 @@ const styles= StyleSheet.create({
 
   desplegable:{
     backgroundColor: '#7F8C8D',
-    opacity: 0.5,
+    opacity: 0.8,
     width: 1.6,
     height:1.0,
     alignItems:'center',

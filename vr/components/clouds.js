@@ -39,7 +39,8 @@ export default class clouds extends React.Component{
             }}>
                 <Model
                     scale = {0.05}
-                    //texture = {'../static_assets/Objetos3D/Texturas/SmudgesLarge001/REGULAR/3K/SmudgesLarge001_OVERLAY_VAR1_3K.jpg'}
+                    color ='#000'
+                    //texture={'../static_assets/Texturas/Black.jpg'}
                     source={{
                         obj: asset('Objetos3D/tinker.obj')
                     }}

@@ -74,7 +74,11 @@ export default class Game extends React.Component{
                 return (
                   <View key={index}
                   onEnter={()=>this.pickShape(index)}>
-                    <Shape shapeNum={shape} colorNum={index} transform={[{translate: [(index-1.5)*1.5, 0, 2]}]}/>
+                    <Shape shapeNum={shape} colorNum={index} transform={[
+                                                                          {translate: [(index-1.5)*2, 0, 6]},
+                                                                          {rotateX: 80},
+                                                                          {rotateY: 40}
+                                                                        ]}/>
                   </View>
                 )
               })
@@ -86,7 +90,7 @@ export default class Game extends React.Component{
 const styles= StyleSheet.create({ 
     Game:{
         transform:[
-            {translate: [ 9, 15, 4]},
+            {translate: [ 9, 15, 7]},
             {rotateY:-105}
         ]
     },
@@ -97,7 +101,7 @@ const styles= StyleSheet.create({
         color: '#fff',
         backgroundColor: '#000',
         transform: [
-            {translate: [0, 2, -5]}
+            {translate: [-3, 2, -2]}
         ]
     }
 });

@@ -11,9 +11,10 @@ import {
 import WeatherCard from './vr/components/weatherCard';
 import Clouds from './vr/components/clouds';
 import Game from './vr/components/Game';
+import json from './vr/components/json;'
 
 //const apiKey = 'ad106cf450bcce17f5a1858b6eef11b1';
-const places=[
+/*const places=[
   {
     name: 'Isla de San Marcos',
     imagen: 'island-garden.jpg',
@@ -99,7 +100,7 @@ const places=[
     imagen: 'Winter-outdoor.jpg',
     info: 'Octava informaciòn... Informaciòn'
   },
-]
+]*/
 
 export default class PPrincipal extends React.Component {
   //Constructor, se define el fondo inicial y el estatus de la variable mosMenu
@@ -116,6 +117,19 @@ export default class PPrincipal extends React.Component {
           }
         ],
       },
+
+      placeObject:{
+        places:[
+          {place:[
+              {name: '',
+               img: '',
+               info: '',
+              }
+            ]
+          }
+        ]
+      },
+
       place : 'island-garden.jpg',
       mosMenu : false,
       text : '',
@@ -131,6 +145,8 @@ export default class PPrincipal extends React.Component {
     fetch('https://api.datos.gob.mx/v1/condiciones-atmosfericas?name=Aguascalientes&date-insert=2017-06-28T19:17:21.762Z', { method: 'GET' })
     .then(response=>response.json())
     .then(json=>this.setState({weatherObject: json}));
+
+    fetch('./vr/components/json', {method: 'GET'}).then(response=>response.json()).then(json=>this.setState({placeObject: json}));
   }
 
   //Cuerpo de la pagina

@@ -11,8 +11,8 @@ import {
 import WeatherCard from './vr/components/weatherCard';
 import Clouds from './vr/components/clouds';
 import Game from './vr/components/Game';
-import json from './vr/components/json;'
 
+const proxy = 'https://cors-anywhere.herokuapp.com/';
 //const apiKey = 'ad106cf450bcce17f5a1858b6eef11b1';
 /*const places=[
   {
@@ -146,7 +146,7 @@ export default class PPrincipal extends React.Component {
     .then(response=>response.json())
     .then(json=>this.setState({weatherObject: json}));
 
-    fetch('./vr/components/json', {method: 'GET'}).then(response=>response.json()).then(json=>this.setState({placeObject: json}));
+    fetch(proxy+'http://jsontour.000webhostapp.com/json.json', {method: 'GET'}).then(response=>response.json()).then(json=>this.setState({placeObject: json}));
   }
 
   //Cuerpo de la pagina
@@ -164,9 +164,9 @@ export default class PPrincipal extends React.Component {
             this.state.mosMenu ?
             <View style={styles.Menu}>
             {
-              places.map((place, index)=>{
+              this.state.placeObject.places.map((place, index)=>{
                 return(
-                  <View key={index} onEnter={()=> this.setState({place: place.imagen, info:place.info})} style={styles.menuItem}>
+                  <View key={index} onEnter={()=> this.setState({place: place.img, info:place.info})} style={styles.menuItem}>
                     <Text style={styles.menuItemText}>{place.name}</Text>
                   </View>
                 )

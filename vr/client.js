@@ -4,6 +4,8 @@
 
 // Auto-generated content.
 import {VRInstance} from 'react-vr-web';
+import  WebVRPolyfill  from  ' webvr-polyfill ' ;
+const  polyfill  =  new  WebVRPolyfill ();
 
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'PPrincipal', parent, {
